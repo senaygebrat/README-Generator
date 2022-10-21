@@ -3,10 +3,20 @@
 // TODO: Create an array of questions for user input
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./generateMarkdown');
+const generateMarkdown = require('./generateMarkdown.js');
+// const apache = "Licensed under the [Apache License](https://spdx.org/licenses/Apache-2.0.html).";
 
 
 // Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+
+// const github = [
+//   {
+//     type: "input",
+//     name: "username",
+//     message: "What is your GitHub username?"
+// }
+// ];
+
 
 
 const questions = 
@@ -37,12 +47,17 @@ const questions =
   {
     type: 'checkbox',
     name: 'License',
-    message: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'GNU v3.0', 'BSD 2-Clause Simplified', 'Boost Software 1.0', 'Creative Commons Zero v1.0', 'Eclipse 2.0', 'Mozilla Public 2.0', 'Unlicense'],
+    message: "What type of License?",
+    choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'Eclipse 2.0'],
   },  
   {
     type: 'input',
     name: 'Contributing',
-    message: 'Please provide a description of your contributions',
+    message: 'Would you like to add any contributors?',
+    choices: [
+      "Yes",
+      "No",
+  ]
   },
   {
     type: 'input',
@@ -61,10 +76,12 @@ const questions =
 function init() {
   inquirer.prompt(questions)
   .then((response) => {
-    fs.writeFile('./generated-readme.md', generateMarkdown(response))
+    fs.writeFile('./generated-readme.md', generateMarkdown(response),(err) => {
+      err ? console.log(err) : console.log('Success!')
+    }
+    )
     console.log(generateMarkdown(response))
-  }
-)
+  })
 }
 
 // Function call to initialize app
