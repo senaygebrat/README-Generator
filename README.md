@@ -34,6 +34,9 @@ const questions =
   },  
   ```
 
+## Technologies Used
+JavaScript, Node
+
 ## Author Links
 
 [LinkedIn](https://www.linkedin.com/in/senayg/)
