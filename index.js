@@ -1,26 +1,19 @@
-// TODO: Include packages needed for this application
-
-// TODO: Create an array of questions for user input
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./generateMarkdown.js');
-// const apache = "Licensed under the [Apache License](https://spdx.org/licenses/Apache-2.0.html).";
-
-
-// Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-
-// const github = [
-//   {
-//     type: "input",
-//     name: "username",
-//     message: "What is your GitHub username?"
-// }
-// ];
-
-
 
 const questions = 
 [
+  {
+    type: 'input',
+    name: 'Github',
+    message: "What is your Github username?"
+},
+{
+  type: 'input',
+  name: 'Email',
+  message: "What is your email address?"
+},
   {
     type: 'input',
     name: 'Project',
@@ -29,48 +22,36 @@ const questions =
   {
     type: 'input',
     name: 'Description',
-    message: 'Please write a description of your README',
-  },
-  {
-    type: 'input',
-    name: 'TableOfContents',
-    message: 'Please write a description of your Table of Contents',
-  },  {
-    type: 'input',
-    name: 'Installation',
-    message: 'Please write a short description of your Installations',
-  },  {
-    type: 'input',
-    name: 'Usage',
-    message: 'Please provide a description of your Usage',
-  },
-  {
-    type: 'checkbox',
-    name: 'License',
-    message: "What type of License?",
-    choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'Eclipse 2.0'],
+    message: 'Please write a description of your project',
   },  
   {
+    type: 'list',
+    name: 'License',
+    message: "What type of License?",
+    choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'Eclipse 1.0'],
+  },
+  {
     type: 'input',
-    name: 'Contributing',
-    message: 'Would you like to add any contributors?',
-    choices: [
-      "Yes",
-      "No",
-  ]
+    name: 'Installation',
+    message: 'What command should be run to install dependencies?',
   },
   {
     type: 'input',
     name: 'Tests',
-    message: 'Please provide a description of your tests',
-  },
+    message: 'What command should be run to run tests?',
+  },  
   {
     type: 'input',
-    name: 'Questions',
-    message: 'Do you have any questions?',
+    name: 'Usage',
+    message: 'What should the user know about using the repo?',
+  },  
+  {
+    type: 'input',
+    name: 'Contributing',
+    message: 'What does the user need to know about contributing to the repo?',
   },
+  
 ]
-
 
 //function to initialize app
 function init() {
