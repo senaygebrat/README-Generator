@@ -16,7 +16,7 @@ ${questions.Description}
   * [Questions](#questions)
 
 ## License 
-This project is licensed under the ${questions.License}
+This project is licensed under: ${questions.License}
 
 ## Installation
 To install necessary dependencies, run the following command: 
@@ -53,8 +53,9 @@ function generateBadges(License){
     case "BSD 3":
       return `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`
     case "Eclipse 1.0":
-      return`[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
-      `
+      return`[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`
+    case "none":
+      return ``
     }
 }
 
